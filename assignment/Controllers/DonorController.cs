@@ -33,7 +33,8 @@ namespace assignment.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            var data = db.Donors.ToList();
+            return View(data);
         }
     }
 }
