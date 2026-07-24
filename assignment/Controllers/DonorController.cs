@@ -31,6 +31,44 @@ namespace assignment.Controllers
 
             return View(d);
         }
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var d= db.Donors.Find(id);
+
+            return View(d);
+        }
+        [HttpPost]
+        public IActionResult Edit(Donor d)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Donors.Update(d);
+                db.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+
+            return View(d);
+        }
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            var donor = db.Donors.Find(id);
+
+            return View(donor);
+        }
+        [HttpPost]
+        public IActionResult Delete(Donor d)
+        {
+            var data = db.Donors.Find(d.DonorId);
+
+            db.Donors.Remove(data);
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
         public IActionResult Index()
         {
             var data = db.Donors.ToList();

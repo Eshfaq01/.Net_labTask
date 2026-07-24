@@ -1,10 +1,28 @@
-﻿@foreach (var d in Model)
-{
-    
-    <p> Name: @d.FullName</p>
-    <p>Blood grp:@d.BloodGroup</p>
-    <p>Contact:@d.ContactNo</p>
-    <p>City: @d.City</p>
-    <p>Last donated: @d.LastDonationDate</p>
-    
-}
+﻿<table class="table table-bordered">
+    <tr>
+        <th>Name</th>
+        <th>Blood Group</th>
+        <th>Contact</th>
+        <th>City</th>
+        <th>Last Donated</th>
+        <th>###</th>
+    </tr>
+
+    @foreach (var d in Model)
+    {
+        <tr>
+            <td>@d.FullName</td>
+            <td>@d.BloodGroup</td>
+            <td>@d.ContactNo</td>
+            <td>@d.City</td>
+            <td>@d.LastDonationDate</td>
+            <td>
+                <a href="/Donor/Edit/@d.DonorId">Edit</a>
+                |
+                <a href="/Donor/Delete/@d.DonorId">Delete</a>
+            </td>
+        </tr>
+        
+
+    }
+</table>

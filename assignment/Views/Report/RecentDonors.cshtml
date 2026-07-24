@@ -1,0 +1,23 @@
+﻿
+
+<h2>Recent Donors</h2>
+
+<table class="table table-bordered">
+
+    <tr>
+        <th>Name</th>
+        <th>Blood Group</th>
+        <th>Last Donation</th>
+    </tr>
+
+
+    @foreach (var d in Model)
+    {
+        <tr>
+            <td>@d.FullName</td>
+            <td>@d.BloodGroup</td>
+            <td>@d.LastDonationDate</td>
+        </tr>
+    }
+
+</table>

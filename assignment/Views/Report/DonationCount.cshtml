@@ -1,0 +1,22 @@
+﻿
+
+<h2>Donation Count</h2>
+
+
+<table class="table table-bordered">
+
+    <tr>
+        <th>Name</th>
+        <th>Total Donation</th>
+    </tr>
+
+
+    @foreach (var d in Model)
+    {
+        <tr>
+            <td>@d.Name</td>
+            <td>@d.TotalDonation</td>
+        </tr>
+    }
+
+</table>
